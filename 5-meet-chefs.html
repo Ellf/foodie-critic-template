@@ -1,0 +1,212 @@
+<style>
+    .ph.meet-chefs {
+        padding: 60px 20px;
+        background-color: #fff; /* You can adjust this background as needed */
+        text-align: center;
+    }
+
+    .ph.meet-chefs h2 {
+        margin-bottom: 20px;
+        color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    }
+
+    .ph.meet-chefs > p {
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Adjust spacing at the bottom of the row of program cards */
+    .ph.meet-chefs .ph-row {
+        margin-bottom: 40px;
+    }
+
+    /* Program Card Styles */
+    .ph.meet-chefs .chef-profile {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--light-gray);
+        padding: 0;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    /* Hover effect on individual program cards */
+    .ph.meet-chefs .chef-profile:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image Styles for Program Cards */
+    .ph.meet-chefs .chef-profile img {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        border-radius: 4px 4px 0 0;
+    }
+
+    /* Title inside each Program Card */
+    .ph.meet-chefs .top-panel {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ph.meet-chefs .name-panel {
+        position: relative;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        width: 80%;
+        height: 80px;
+        margin: 0 auto;
+        bottom: 40px
+    }
+
+    .ph.meet-chefs .chef-profile h3 {
+        margin: 0;
+        color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+        font-size: 2.4rem; /* Adjust size as needed */
+        line-height: 1.2;
+    }
+
+    /* Description Text for Program Cards */
+    .ph.meet-chefs .chef-profile p {
+        font-size: var(--p);
+        margin: -20px auto 20px;
+        padding-top: 20px;
+        width: 80%;
+        border-top: 1px solid var(--light-gray);
+        color: var(--text-gray);
+    }
+
+    .ph.meet-chefs .chef-social {
+        margin-bottom: 20px;
+    }
+
+    /* Responsive Tweaks if Needed */
+    /* Your grid system is handling responsiveness,
+       but here’s an example if additional tweaks are required: */
+    @media only screen and (max-width: 768px) {
+        .ph.meet-chefs {
+            padding: 40px 10px;
+            margin: 0 10px;
+        }
+    }
+
+</style>
+<section class="ph meet-chefs">
+  <div class="ph-inner-width">
+    <h6 class="body-font-700 ph-uppercase"><i class="fas fa-user-chef"></i> Experts</h6>
+    <h2 class="header-font-700">Meet Our Chefs</h2>
+    <p>
+      Seasoned chefs cooking up inspiration.
+    </p>
+
+    <!-- Chef Grid -->
+    <div class="ph-row ph-flex ph-flex-row">
+
+      <!-- Chef Profile Card -->
+      <div class="ph-col-4 ph-col-md-6 ph-col-sm-12 chef-profile" data-aos="fade-right">
+        <div class="corner-ribbon top-left red">Executive Chef</div>
+        <div class="ph-flex ph-flex-space-between">
+          <div>
+            <div class="top-panel">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Chef John Doe">
+              <div class="name-panel">
+                <h3>John Doe</h3>
+              </div>
+            </div>
+            <p>
+              With over 20 years of culinary expertise, Chef John blends classic techniques with innovative flavors, inspiring foodies around the globe.
+            </p>
+            <div class="chef-social">
+              <a href="https://twitter.com/chefjohn" target="_blank" class="ph-btn small btn-primary">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/chefjohn" target="_blank" class="ph-btn small btn-accent">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/chefjohn" target="_blank" class="ph-btn small btn-secondary">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://facebook.com/chefjohn" target="_blank" class="ph-btn small btn-accent">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Chef Profile Card: Woman Pastry Chef -->
+      <div class="ph-col-4 ph-col-md-6 ph-col-sm-12 chef-profile" data-aos="fade-up">
+        <div class="corner-ribbon top-left red">Pastry Chef</div>
+        <div class="ph-flex ph-flex-space-between">
+          <div>
+            <div class="top-panel">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Chef Jane Smith">
+              <div class="name-panel">
+                <h3>Jane Smith</h3>
+              </div>
+            </div>
+            <p>
+              A master of sweet creations, Chef Jane delights in crafting exquisite pastries and desserts that tantalize the senses.
+            </p>
+            <div class="chef-social">
+              <a href="https://twitter.com/chefjane" target="_blank" class="ph-btn small btn-primary">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/chefjane" target="_blank" class="ph-btn small btn-accent">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/chefjane" target="_blank" class="ph-btn small btn-secondary">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Chef Profile Card: Culinary Innovator -->
+      <div class="ph-col-4 ph-col-md-6 ph-col-sm-12 chef-profile" data-aos="fade-left">
+        <div class="corner-ribbon top-left red">Sous Chef</div>
+        <div class="ph-flex ph-flex-space-between">
+          <div>
+            <div class="top-panel">
+              <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Chef Roberto Martinez">
+              <div class="name-panel">
+                <h3>Roberto Martinez</h3>
+              </div>
+            </div>
+            <p>
+              Bringing innovation to the kitchen, Chef Roberto fuses traditional techniques with modern twists to create memorable dining experiences.
+            </p>
+            <div class="chef-social">
+              <a href="https://twitter.com/chefroberto" target="_blank" class="ph-btn small btn-primary">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/chefroberto" target="_blank" class="ph-btn small btn-accent">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/chefroberto" target="_blank" class="ph-btn small btn-secondary">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

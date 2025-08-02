@@ -1,0 +1,542 @@
+<!-- Load AOS library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<!-- Load Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- Load Font Awesome 6 Free Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- SwiperJS -->
+<link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<style>
+    /* Global Box-Sizing */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    /* Liquid Variables */
+    /* ---------------------> CHANGE THIS TO YOUR OWN CHECKOUT LINK */
+    {% assign checkoutLink = "https://google.com" %}
+
+    /* ROOT */
+    :root {
+        /* Define the width of the course cards   */
+        /* Recommended 300px, but can be anything */
+        --course-card-width: 340px;
+        --grid-gap: 10px;
+
+        --header-font: "Montserrat", sans-serif;
+        --body-font: "Roboto", sans-serif;
+
+        /* Define primary color as HSL */
+        --primary-h: 358;
+        --primary-s: 80%;
+        --primary-l: 53%;  /* #e7272d */
+        --primary: #e7272d;
+
+        /* Define secondary color as HSL (a deeper red) */
+        --secondary-h: 4;
+        --secondary-s: 71%;
+        --secondary-l: 49%;  /* #d32f2f */
+        --secondary: #d32f2f;
+
+        /* Define accent color as HSL (a subtle teal compliment) */
+        --accent-h: 174;
+        --accent-s: 42%;
+        --accent-l: 65%;    /* #80cbc4 */
+        --accent: #80cbc4;
+
+        /* Amount to darken for hover/active states */
+        --hover-darken: 10%;
+        --active-darken: 15%;
+        --bg-primary-light: #fffaf5;
+
+        /* Other colours */
+        --alert: blue;
+        --gold: #FFD700;
+        --light-text: #f2f2f2;
+        --light-gray: #efefef;
+        --medium-gray: #9ca3af;
+        --medium-text: #9ca3af;
+        --text-gray: #333333;
+        --dark-gray: #222;
+        --info: #17a2b8;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --success: #28a745;
+        --info-light: #d1ecf1;
+        --warning-light: #fff3cd;
+        --danger-light: #f8d7da;
+        --success-light: #d4edda;
+
+        --section-padding: 20px;
+        --section-margin: 20px;
+
+        --body-font-size: 18px; /* reference if needed */
+        --h1: 7rem;    /* 80px */
+        --h2: 4rem;    /* 40px */
+        --h3: 3.2rem;  /* 32px */
+        --h4: 2.8rem;  /* 28px */
+        --h5: 2.2rem;  /* 22px */
+        --h6: 1.8rem;  /* 18px */
+        --p:  1.8rem;  /* 18px */
+        --small: 1.2rem; /* 12x */
+    }
+
+    /* Utility Classes */
+    .ph-is-hidden { display: none; }
+    .ph .ph-uppercase { text-transform: uppercase; }
+
+    /* Define our Fonts */
+    /* Header font classes for various weights */
+    .header-font-400 {
+        font-family: var(--header-font);
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .header-font-700 {
+        font-family: var(--header-font);
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    /* Body font classes */
+    .body-font-400 {
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /* Adjusted class name for clarity if using weight 700 */
+    .body-font-700 {
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .ph .ph-inner-width {
+        max-width: 1200px;
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* Container for rows */
+    .ph-row {
+        margin-right: -15px; /* optional spacing adjustment */
+        margin-left: -15px;  /* optional spacing adjustment */
+    }
+
+    .ph-flex { display: flex; gap: 10px; flex-direction: column; justify-content: center; }
+    .ph-flex-wrap { flex-wrap: wrap; }
+    .ph-flex-row { flex-direction: row; }
+    .ph-flex-space-between { justify-content: space-between; height: 100%; }
+    .ph-flex-align-items-center { align-items: center; }
+
+    /* Basic column that can be sized from 1 to 12 */
+    [class*="col-"] {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    /* Column Widths */
+    .ph-col-1 { width: 8.33%; }
+    .ph-col-2 { width: 16.66%; }
+    .ph-col-3 { width: 25%; }
+    .ph-col-4 { width: calc(33.33% - var(--grid-gap)); }
+    .ph-col-5 { width: 41.66%; }
+    .ph-col-6 { width: 50%; }
+    .ph-col-7 { width: 58.33%; }
+    .ph-col-8 { width: 66.66%; }
+    .ph-col-9 { width: 75%; }
+    .ph-col-10 { width: 83.33%; }
+    .ph-col-11 { width: 91.66%; }
+    .ph-col-12 { width: 100%; }
+
+    /* ====================
+       Tablet Grid Classes
+       Applies for devices with width between 768px and 991px
+    ==================== */
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .ph-col-md-1 { width: 8.33%; }
+        .ph-col-md-2 { width: 16.66%; }
+        .ph-col-md-3 { width: 25%; }
+        .ph-col-md-4 { width: 33.33%; }
+        .ph-col-md-5 { width: 41.66%; }
+        .ph-col-md-6 { width: 50%; }
+        .ph-col-md-7 { width: 58.33%; }
+        .ph-col-md-8 { width: 66.66%; }
+        .ph-col-md-9 { width: 75%; }
+        .ph-col-md-10 { width: 83.33%; }
+        .ph-col-md-11 { width: 91.66%; }
+        .ph-col-md-12 { width: 100%; }
+
+        /* Preserve horizontal padding from our base column styles */
+        .ph-col-md-1,
+        .ph-col-md-2,
+        .ph-col-md-3,
+        .ph-col-md-4,
+        .ph-col-md-5,
+        .ph-col-md-6,
+        .ph-col-md-7,
+        .ph-col-md-8,
+        .ph-col-md-9,
+        .ph-col-md-10,
+        .ph-col-md-11,
+        .ph-col-md-12 {
+            padding-right: 15px;
+            padding-left: 15px;
+            float: left;
+        }
+        .ph-row.ph-flex.ph-flex-row {
+            flex-wrap: wrap;
+        }
+    }
+
+    /* ====================
+       Mobile Grid Classes
+       Applies for devices with width up to 767px
+    ==================== */
+    @media only screen and (max-width: 767px) {
+        .ph-col-sm-1 { width: 8.33%; }
+        .ph-col-sm-2 { width: 16.66%; }
+        .ph-col-sm-3 { width: 25%; }
+        .ph-col-sm-4 { width: 33.33%; }
+        .ph-col-sm-5 { width: 41.66%; }
+        .ph-col-sm-6 { width: 50%; }
+        .ph-col-sm-7 { width: 58.33%; }
+        .ph-col-sm-8 { width: 66.66%; }
+        .ph-col-sm-9 { width: 75%; }
+        .ph-col-sm-10 { width: 83.33%; }
+        .ph-col-sm-11 { width: 91.66%; }
+        .ph-col-sm-12 { width: 100%; }
+
+        /* Preserve horizontal padding from our base column styles */
+        .ph-col-sm-1,
+        .ph-col-sm-2,
+        .ph-col-sm-3,
+        .ph-col-sm-4,
+        .ph-col-sm-5,
+        .ph-col-sm-6,
+        .ph-col-sm-7,
+        .ph-col-sm-8,
+        .ph-col-sm-9,
+        .ph-col-sm-10,
+        .ph-col-sm-11,
+        .ph-col-sm-12 {
+            padding-right: 15px;
+            padding-left: 15px;
+            float: left;
+        }
+        .ph-row.ph-flex.ph-flex-row {
+            flex-wrap: wrap;
+        }
+    }
+
+    /* Some margin definitions */
+    .mt-20 { margin-top: 20px; }
+    .mt-40 { margin-top: 40px; }
+    .ph-gap-row-20 { row-gap: 20px; }
+    .ph-gap-row-40 { row-gap: 40px; }
+
+    /* Buttons */
+    /* Base Button Styles */
+    .ph-btn {
+        background: white;
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 10px 25px;
+        font-size: var(--p);
+        color: black;
+        cursor: pointer;
+        transition: background 0.3s, box-shadow 0.3s;
+        border-radius: 4px; /* Gently rounded corners */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+        width: auto;
+    }
+    .ph-btn.small { padding: 8px 12px; font-size: 14px; box-shadow: 2px 4px 20px #222222; }
+    .ph-btn.medium { padding: 10px 25px; font-size: 18px; box-shadow: 2px 4px 20px #222222; }
+    .ph-btn.large { padding: 15px 30px; font-size: 24px; box-shadow: 2px 4px 20px #222222; }
+    .btn-primary {
+        background: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+        color: white;
+    }
+    .btn-primary:hover {
+        background: hsl(
+                var(--primary-h),
+                var(--primary-s),
+                calc(var(--primary-l) - var(--hover-darken))
+        );
+    }
+
+    .btn-primary:active {
+        background: hsl(
+                var(--primary-h),
+                var(--primary-s),
+                calc(var(--primary-l) - var(--active-darken))
+        );
+    }
+
+    /* Secondary Button */
+    .btn-secondary {
+        background: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: hsl(
+                var(--secondary-h),
+                var(--secondary-s),
+                calc(var(--secondary-l) - var(--hover-darken))
+        );
+    }
+
+    .btn-secondary:active {
+        background: hsl(
+                var(--secondary-h),
+                var(--secondary-s),
+                calc(var(--secondary-l) - var(--active-darken))
+        );
+    }
+
+    /* Accent Button */
+    .btn-accent {
+        background: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+        color: white;
+    }
+
+    .btn-accent:hover {
+        background: hsl(
+                var(--accent-h),
+                var(--accent-s),
+                calc(var(--accent-l) - var(--hover-darken))
+        );
+    }
+
+    .btn-accent:active {
+        background: hsl(
+                var(--accent-h),
+                var(--accent-s),
+                calc(var(--accent-l) - var(--active-darken))
+        );
+    }
+
+    /* TEMPLATE ONE */
+    .ph.light-theme[class*="template-"] {
+        color: #ffffff; /* Light text color for all child elements */
+    }
+
+    .ph.light-theme[class*="template-"] h1,
+    .ph.light-theme[class*="template-"] h2,
+    .ph.light-theme[class*="template-"] h3,
+    .ph.light-theme[class*="template-"] h4,
+    .ph.light-theme[class*="template-"] h5,
+    .ph.light-theme[class*="template-"] h6,
+    .ph.light-theme[class*="template-"] p,
+    .ph.light-theme[class*="template-"] a {
+        color: inherit; /* Ensure they inherit from .light-theme */
+    }
+
+    /* Heading Styles (Scoped) */
+    .ph h1 {
+        font-size: var(--h1);
+        line-height: 1.0;
+        letter-spacing: 0.02em;
+        margin: 0 0 1rem;
+    }
+    .ph h2 {
+        font-size: var(--h2);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+    .ph h3 {
+        font-size: var(--h3);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+    .ph h4 {
+        font-size: var(--h4);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+    .ph h5 {
+        font-size: var(--h5);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+    .ph h6 {
+        font-size: var(--h6);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+
+    .ph p, .ph ul li {
+        font-size: var(--p);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+
+    /* The ribbons */
+
+    .corner-ribbon {
+        width: 200px;
+        background: #e43;
+        position: absolute;
+        top: 25px;
+        left: -50px;
+        text-align: center;
+        line-height: 50px;
+        letter-spacing: 1px;
+        color: #f0f0f0;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        z-index: 4;
+    }
+
+    /* Custom styles */
+
+    .corner-ribbon.sticky {
+        position: fixed;
+        z-index: 1030;
+    }
+
+    .corner-ribbon.shadow {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 5);
+    }
+
+    /* Different positions */
+
+    .corner-ribbon.top-left {
+        top: 25px;
+        left: -50px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    .corner-ribbon.top-right {
+        top: 25px;
+        right: -50px;
+        left: auto;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .corner-ribbon.bottom-left {
+        top: auto;
+        bottom: 25px;
+        left: -50px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .corner-ribbon.bottom-right {
+        top: auto;
+        right: -50px;
+        bottom: 25px;
+        left: auto;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    /* Colors */
+
+    .corner-ribbon.white {
+        background: #f0f0f0;
+        color: #555;
+    }
+    .corner-ribbon.black {
+        background: #333;
+    }
+    .corner-ribbon.grey {
+        background: #999;
+    }
+    .corner-ribbon.blue {
+        background: #39d;
+    }
+    .corner-ribbon.green {
+        background: #2c7;
+    }
+    .corner-ribbon.turquoise {
+        background: #1b9;
+    }
+    .corner-ribbon.purple {
+        background: #95b;
+    }
+    .corner-ribbon.red {
+        background: #e43;
+    }
+    .corner-ribbon.orange {
+        background: #e82;
+    }
+    .corner-ribbon.yellow {
+        background: #ec0;
+    }
+
+    /* Tags or Badges */
+    .ph .tag { background: white; padding: 4px 8px; display: inline-flex; border-radius: 0 0 12px 12px; color: var(--dark-gray); }
+    .ph .is-info { background: var(--info); color: white; }
+    .ph .is-warning { background: var(--warning); color: white; }
+    .ph .is-danger { background: var(--danger); color: white; }
+    .ph .is-success { background: var(--success); color: white; }
+    .ph .is-info-light { background: var(--info-light); }
+    .ph .is-warning-light { background: var(--warning-light); }
+    .ph .is-danger-light { background: var(--danger-light); }
+    .ph .is-success-light { background: var(--success-light); }
+
+    .ph.ph-notice { position: absolute; top: 80px; width: 80%; z-index: 1; left: 50%; transform: translateX(-50%); border-radius: 10px; padding: 10px 10px 0; }
+    .ph.ph-notice span { font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .ph.ph-danger { background: var(--danger); color: white; }
+    .ph.ph-info { background: var(--info); color: white; }
+    .ph.ph-warning { background: var(--warning); color: white; }
+    .ph.ph-success { background: var(--success); color: white; }
+    /*
+        MEDIA QUERY FUN
+    */
+
+    /* Huge Devices */
+    @media only screen and (min-width: 1201px) {}
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width: 1200px) {}
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width: 992px) {
+        .static-anchor { margin: 0 auto; }
+    }
+
+    /* iPad Pro portrait mode */
+    @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) and (orientation: portrait) {}
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width: 768px) {}
+
+    @media only screen and (min-width:480px) and (max-width:767px) {}
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width: 480px) {
+        :root {
+            --h1:55px;
+        }
+        .ph .ph-inner-width {
+            padding: 0 5px;
+        }
+        .ph.template-one { text-align: center; padding: 60px 10px 0; }
+        .static-anchor { height: 620px !important; width: 420px !important; }
+        .static, .soon { width: 257px !important; height: 161px !important; bottom: 129px !important; right: 85px !important; }
+        .hero-image-right { width: 100% !important; }
+        .ph.about-us .ball { top: unset !important; bottom: -20px !important; left: 50% !important; transform: translateX(-50%);}
+        .ph.footer { text-align: center; }
+    }
+
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width: 320px) {}
+
+</style>

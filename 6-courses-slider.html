@@ -1,0 +1,189 @@
+<style>
+    .ph.recommended-courses { background: var(--bg-primary-light); padding: 60px 0; }
+    .ph.recommended-courses h2 { color: hsl(var(--primary-h), var(--primary-s), var(--primary-l)); }
+    .ph.recommended-courses .ph-best-courses { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; width: var(--course-card-width); border-radius: 8px; background: #ffffff; border: 2px solid var(--primary); padding: 6px; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card:hover { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); transform: translateY(-5px); }
+    .ph.recommended-courses .ph-best-courses .ph-course-card p { color: #222; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card p.left { padding: 0; font-size: 14px; text-align: left; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card p.center { padding: 0; font-size: 14px; text-align: center; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card p.right { padding: 0; font-size: 14px; text-align: right; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card .ph-course-name { font-size: 20px; text-transform: uppercase; font-weight: 700; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card img { width: 100%; border-radius: 8px 8px 0 0; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card .ph-meta { padding: 2px; }
+    .ph.recommended-courses .ph-best-courses .ph-course-card .ph-price { font-size: var(--h3); color: var(--dark-gray); font-weight: 700; padding: 0 0 10px;}
+    .ph.recommended-courses .ph-best-courses .ph-course-card .ph-cats { position: absolute; top: -1px; left: 10px;  }
+    .ph.recommended-courses .ph-best-courses .ph-course-card .desc { padding: 0 15px 10px; }
+    .ph.recommended-courses .course-slider {
+        width: 100%;
+        height: 500px;
+        padding: 20px 0 0 20px;
+        overflow: hidden;
+        --swiper-navigation-sides-offset: -1px;
+        --swiper-navigation-size: 30px;
+    }
+    .ph.recommended-courses .course-swiper { height: calc(100% - 40px); }
+    /* Adjust the overall scrollbar container */
+    .course-swiper .swiper-scrollbar {
+        background: rgba(255, 255, 255, 0.1); /* Light transparent background for the track */
+        height: 8px;                           /* Adjust height (for horizontal scrollbar) */
+        border-radius: 4px;
+    }
+
+    /* Style the draggable scrollbar element */
+    .course-swiper .swiper-scrollbar-drag {
+        background: #FFD700; /* Use gold or any contrasting color */
+        border-radius: 4px;
+    }
+
+    /* Optional: adjusting hover or active states */
+    .course-swiper .swiper-scrollbar-drag:hover {
+        background: #FFC700;
+    }
+
+    .course-swiper .swiper-pagination {
+        bottom: 20px;
+    }
+</style>
+<section class="ph recommended-courses">
+  <div class="ph-inner-width">
+    <div class="ph-best-courses">
+      <h6 class="body-font-700 ph-uppercase"><i class="fas fa-books"></i> Our Courses</h6>
+      <h2 class="header-font-700">Choose from Our Popular Courses</h2>
+      <div class="course-slider">
+        <div class="course-swiper">
+          <div class="swiper-wrapper">
+            {% for course in current_school.publicly_viewable_courses | limit: 6 %}
+            <!-- limit to only the courses tagged with recommended -->
+            {% assign recommended = "ph-is-hidden" %}
+            {% for category in course.categories %}
+            {% if category.name contains "" %}
+            {% assign recommended = "" %}
+            {% endif %}
+            {% endfor %}
+            {% assign lecture_count = 0 %}
+            {% assign lecture_duration = 0 %}
+            {% for lecture_section in course.ordered_published_lecture_sections %}
+            {% for lecture in lecture_section.lectures %}
+            {% assign lecture_count = lecture_count | plus: 1 %}
+            {% if lecture.formatted_duration != "" %}
+            {% assign lecture_duration = lecture_duration | plus: lecture.duration %}
+            {% endif %}
+            {% endfor %}
+            {% if forloop.last %}
+            {% assign lecture_duration = lecture_duration | divided_by: 60 %}
+            {% endif %}
+            {% endfor %}
+
+            <a  href="{{ course.url }}" style="z-index:0;" class="swiper-slide {{recommended}}">
+              <div class="ph-course-card">
+                <div>
+                  <div>
+                    <figure>
+                      <img src="{{ course.image_url }}" />
+                    </figure>
+                    <div class="ph-col-12 ph-flex ph-flex-row ph-meta">
+                      <p class="ph-col-4 left">{{ lecture_count }} lectures</p>
+                      <p class="ph-col-4 center"><i class="fas fa-video"></i> {{ lecture_duration }} min </p>
+                      <p class="ph-col-4 right"><i class="fas fa-users"></i> {{ course.students }}</p>
+                    </div>
+                    <p class="">{{ course.author.name }}</p>
+                  </div>
+                  <div class="desc">
+                    <p class="ph-course-name">{{ course.name }}</p>
+                    {% if showAuthor == true %}
+                    <p class="pb-2"><small>by <span class="{% if course.author_bio.name == featured_bio %}tag is-success{% endif %}">{{ course.author_bio.name }}</span></small></p>
+                    {% endif %}
+                    <p class="">{{ course.heading }}</p>
+                  </div>
+                </div>
+                <div class="ph-flex ph-flex-row">
+                  <div class="ph-cats">
+                    {% for category in course.categories %}
+                    {% if category.name contains "Recommended" %}
+                    <div class="tag is-info">Recommended</div>
+                    {% elsif category.name contains "Featured" %}
+                    <div class="tag is-warning">Featured</div>
+                    {% elsif category.name contains "Template" %}
+                    <div class="tag is-success-light">Template</div>
+                    {% elsif category.name contains "Theme" %}
+                    <div class="tag is-danger">Theme</div>
+                    {% elsif category.name contains "Course" %}
+                    <div class="tag is-success">Course</div>
+                    {% elsif category.name contains "Section" %}
+                    <div class="tag is-info-light">Section</div>
+                    {% elsif category.name contains "1.0" %}
+                    <div class="tag is-danger-light">v1.0</div>
+                    {% elsif category.name contains "2.0" %}
+                    <div class="tag is-warning-light">v2.0</div>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="ph-price">{{ course.default_product.formatted_price }}</div>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const swiper3 = new Swiper('.course-swiper', {
+
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 20,
+    direction: 'horizontal',
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      pauseOnMouseEnter: true
+    },
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>

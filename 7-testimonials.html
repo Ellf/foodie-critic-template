@@ -1,0 +1,247 @@
+<style>
+    .ph.testimonials { padding: 60px 0; text-align: center; }
+    .ph.testimonials .sample { position: absolute;
+        font-size: 80px;
+        color: rgba(0, 0, 0, 0.2);
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .slider3 {
+        padding-top: 40px;
+        overflow: hidden;
+        width: 100%;
+        height: 440px;
+        --swiper-navigation-sides-offset: -1px;
+        --swiper-navigation-size: 30px;
+    }
+    /* Testimonial Card Styling */
+    .testimonial-frame {
+        border-radius: 8px;
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        border: 1px solid var(--light-gray);
+        flex-direction: column;
+        align-items: center;
+        transform: rotate(5deg);
+        background: white;
+    }
+    .testimonial-wrapper {
+        border: 10px solid var(--primary);
+        transform: rotate(-5deg);
+        position: absolute;
+        background: #f8f8f8;     /* Light background for contrast */
+        padding: 0;
+        margin: 10px;            /* Optional margin between cards */
+        border-radius: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Make the testimonial photos circular and size them appropriately */
+    .testimonial-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 2px solid #FFD700;  /* Optional gold border for a nice accent */
+    }
+
+    /* Blockquote styling for the testimonial text */
+    .testimonial-wrapper blockquote {
+        margin: 0;
+        padding: 0 10px;
+        font-style: italic;
+        color: #555;
+    }
+
+    /* Author styling */
+    .testimonial-author {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .testimonial-author strong {
+        display: block;
+        font-size: 1.4rem;
+        color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    }
+
+    .testimonial-author span {
+        font-size: 1.1rem;
+        color: #777;
+    }
+
+    /* Adjust the overall scrollbar container */
+    .slider3 .swiper-scrollbar {
+        background: rgba(255, 255, 255, 0.1); /* Light transparent background for the track */
+        height: 8px;                           /* Adjust height (for horizontal scrollbar) */
+        border-radius: 4px;
+    }
+
+    /* Style the draggable scrollbar element */
+    .slider3 .swiper-scrollbar-drag {
+        background: #FFD700; /* Use gold or any contrasting color */
+        border-radius: 4px;
+    }
+
+    /* Optional: adjusting hover or active states */
+    .slider3 .swiper-scrollbar-drag:hover {
+        background: #FFC700;
+    }
+
+    .slider3 .swiper-pagination {
+        bottom: 20px;
+    }
+</style>
+<section class="ph testimonials">
+  <div class="ph-inner-width">
+    <h2>Real Success Stories</h2>
+    <p>Discover how our transformative programs empower project management professionals to excel—one success story at a time.</p>
+    <!-- Slider main container -->
+    <div class="slider3">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-frame">
+              <div class="sample">sample</div>
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Photo" class="testimonial-photo">
+              <blockquote>
+                <p>"Joining Foodie Critics revolutionized my culinary skills. Their hands-on courses and expert advice transformed my passion into a gourmet adventure."</p>
+              </blockquote>
+              <div class="testimonial-author">
+                <strong>Alex</strong> <span>Miami, FL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-frame">
+              <div class="sample">sample</div>
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Maria Photo" class="testimonial-photo">
+              <blockquote>
+                <p>"Foodie Critics opened my tastebuds to a world of flavors. Every course felt like a personal invitation to explore and create magic in the kitchen."</p>
+              </blockquote>
+              <div class="testimonial-author">
+                <strong>Maria</strong> <span>Toronot, Canada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-frame">
+              <div class="sample">sample</div>
+              <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="Jordan Photo" class="testimonial-photo">
+              <blockquote>
+                <p>"Since enrolling in Foodie Critics, my dishes have turned into masterpieces. Their insider secrets and interactive classes have been a game-changer."</p>
+              </blockquote>
+              <div class="testimonial-author">
+                <strong>Jordan</strong> <span>Sydney, Australia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-frame">
+              <div class="sample">sample</div>
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Photo" class="testimonial-photo">
+              <blockquote>
+                <p>"I had always loved cooking, but Foodie Critics helped me refine my technique and bring creativity to every plate. It's like having a renowned chef by your side."</p>
+              </blockquote>
+              <div class="testimonial-author">
+                <strong>Emily</strong> <span>Oxford, England</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-frame">
+              <div class="sample">sample</div>
+              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="David Photo" class="testimonial-photo">
+              <blockquote>
+                <p>"Foodie Critics is more than just a culinary school—it’s a community where every recipe tells a story and every lesson is a step towards culinary excellence."</p>
+              </blockquote>
+              <div class="testimonial-author">
+                <strong>David</strong> <span>Los Angeles, CA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</section>
+<script>
+  const swiper = new Swiper('.slider3', {
+
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 20,
+    direction: 'horizontal',
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>

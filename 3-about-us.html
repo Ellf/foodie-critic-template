@@ -1,0 +1,85 @@
+<style>
+    /* Scoped to elements inside .ph */
+    .ph.about-us {
+        padding: 60px 20px;
+        background-color: var(--bg-primary-light);  /* Subtle tint derived from your accent */
+    }
+
+    /* Text Content within the School Overview */
+    .ph.about-us .ph-overview-text h2 {
+        margin-bottom: 20px;
+        color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    }
+
+    .ph.about-us .ph-overview-text p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Highlights List */
+    .ph.about-us .ph-overview-highlights {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    /* icon */
+    .ph.about-us i {
+        font-size: var(--h6);
+        color: var(--accent);
+    }
+
+    /* Image Styling */
+    .ph.about-us .ph-overview-image img {
+        transform: rotate(5deg);
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .ph.about-us .square-frame { border: 20px solid var(--primary); transform: rotate(-5deg); }
+    .ph.about-us .selling-points { display: flex; padding: 20px 0; border-top: 2px solid var(--light-gray); border-bottom: 2px solid var(--light-gray); }
+    .ph.about-us .selling-point { display: flex; flex-direction: row; gap: 10px; }
+    .ph.about-us .selling-point i { font-size: var(--h2); }
+    .ph.about-us .selling-point p { font-size: var(--small); }
+</style>
+<section class="ph about-us">
+  <div class="ph-inner-width">
+    <div class="ph-row ph-flex ph-flex-row">
+      <!-- Visual Content Column -->
+      <div class="ph-col-5 ph-col-md-5 ph-col-sm-12 ph-overview-image" data-aos="fade-right">
+        <div class="square-frame">
+          <img src="https://placehold.co/1280x1280" alt="Chef working in kitchen">
+        </div>
+      </div>
+
+      <!-- Text Content Column -->
+      <div class="ph-col-7 ph-col-md-7 ph-col-sm-12 ph-overview-text" data-aos="fade-left">
+        <h6 class="body-font-700 ph-uppercase"><i class="fas fa-hat-chef"></i> About Us</h6>
+        <h2 class="header-font-400">Welcome to Foodie Critics Online Courses</h2>
+        <p class="body-font-400">
+          At Foodie Critics Online Courses, we are dedicated to inspiring food enthusiasts and professionals alike. Our interactive and engaging courses empower you to master culinary techniques and explore the art of food criticism with guidance from industry experts. Whether you're a beginner eager to learn the basics or a seasoned pro looking to refine your palate, our course offerings are designed to elevate your gastronomic journey.
+        </p>
+        <div class="selling-points">
+          <div class="selling-point col-6 col-md-6 col-sm-12 ">
+            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+            <div class="col-12">
+              <h5 class="body-font-700">Expert Chefs as Mentors</h5>
+              <p>Learn from the best in the industry and refine your culinary craft.</p>
+            </div>
+          </div>
+          <div class="selling-point col-6 col-md-6 col-sm-12">
+            <i class="fa-solid fa-chalkboard-teacher" aria-hidden="true"></i>
+            <div class="col-12">
+              <h5 class="body-font-700">Interactive Learning</h5>
+              <p>Engage with hands-on lessons and real-time feedback to boost your skills.</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="ph-btn btn-primary" data-aos="fade-up" data-aos-delay="400" href="/l/products">Discover Our Products</a>
+      </div>
+
+    </div>
+  </div>
+</section>

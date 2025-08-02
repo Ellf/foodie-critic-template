@@ -1,0 +1,59 @@
+<style>
+    .ph.cta {
+        position: relative;
+        padding: 60px 20px 60px;
+        background: linear-gradient(135deg, #482121 0%, #7a3e3e 100%);
+        color: #f2f2f2;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Pseudo-element to add the artistic sauce dribble effect */
+    .ph.cta::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        background: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 60" preserveAspectRatio="none">\
+  <defs>\
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">\
+      <stop offset="0%" style="stop-color:%23482121;stop-opacity:1" />\
+      <stop offset="100%" style="stop-color:%237a3e3e;stop-opacity:1" />\
+    </linearGradient>\
+  </defs>\
+  <path d="M0 20 C250 60 750 0 1000 40 L1000 60 L0 60 Z" fill="url(%23grad)"/>\
+</svg>') no-repeat;
+        background-size: 100% 100%;
+        z-index: 1;
+    }
+
+    .ph.cta > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    .ph.cta h2 {
+        margin-bottom: 20px;
+        color: var(--accent);
+        font-size: 2.4rem;
+    }
+
+    .ph.cta p {
+        margin-bottom: 30px;
+        font-size: var(--p);
+        color: var(--light-gray);
+    }
+</style>
+
+<section class="ph cta">
+  <div class="ph-inner-width">
+    <h2>Hungry for Culinary Mastery?</h2>
+    <p>
+      Join Foodie Critics today and savor the expertise of world-class chefs. Dive into immersive courses, discover secret recipes, and elevate your cooking game to a gourmet level.
+    </p>
+    <a class="ph-btn btn-primary" href="/signup">Join the Feast</a>
+  </div>
+</section>

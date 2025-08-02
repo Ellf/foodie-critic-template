@@ -1,0 +1,59 @@
+<style>
+    .ph.template-two {
+        display: flex;
+        align-items: center;
+        min-height: 800px;
+        background-size: cover;
+        background: url('https://placehold.co/1280x850') no-repeat center;
+        position: relative;
+    }
+    .ph.template-two .quick-stats { display: flex; gap: 10px; margin-bottom: 20px; }
+    .ph.template-two .quick-stats .stat { padding: 20px; border: 1px solid var(--primary); display: flex; gap: 10px; font-size: var(--p); text-transform: uppercase; transition: all 0.3s ease; }
+    .ph.template-two .quick-stats .stat:hover { background: rgba(255, 255, 255, 1); color: var(--dark-gray);  }
+    .static-anchor { position: relative; height: 800px; width: 607px; }
+    .hero-image-right { width: 600px; position: absolute; bottom: 0; }
+    .static, .soon { position: absolute; width: 372px; height: 232px; bottom: 184px; right: 126px; border: 1px solid black; border-radius: 5px; }
+    .soon { z-index: 4; pointer-events: none; }
+    .static:hover ~ .soon { display: block; }
+    p.ph-small { font-size: 12px; margin-top: 10px; }
+    .ph .overlay { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(to right, rgba(34, 34, 34, 0.9) 20%, rgba(0, 0, 0, 0.5)); z-index: 0; }
+</style>
+<!-- HOMEPAGE -->
+<!-- HERO Version 2: Site headline, description & call to action -->
+<div class="ph template-two light-theme">
+  <div class="overlay"></div>
+  <div class="ph-inner-width ph-on-top">
+    <div class="ph-row ph-flex ph-flex-row">
+      <div class="ph-col-6 ph-col-md-12 ph-col-sm-12 ph-flex">
+        <h5 class="ph-light" data-aos="fade">A Purple Hippo Web Studio Template</h5>
+        <h1 class="header-font-700" data-aos="fade-right" data-aos-delay="400">Foodie Critics</h1>
+        <h3 class="header-font-400" data-aos="fade-up" data-aos-delay="600">Exploring Culinary Secrets, One Bite at a Time</h3>
+        <div class="quick-stats body-font-400" data-aos="fade-up">
+          <a class="" href="/l/products?courseCategory=Cakes&page=1">
+            <div class="stat">
+              <i class="fas fa-cake" aria-hidden="true"></i> Cakes
+            </div>
+          </a>
+          <a class="" href="/l/products?courseCategory=Piess&page=1">
+            <div class="stat">
+              <i class="fas fa-pie" aria-hidden="true"></i> Pies
+            </div>
+          </a>
+          <a class="" href="/l/products?courseCategory=Pancakes&page=1">
+            <div class="stat">
+              <i class="fas fa-pancakes" aria-hidden="true"></i> Pancakes
+            </div>
+          </a>
+        </div>
+        <div class="ph-buttons" data-aos="fade-up" data-aos-delay="700">
+          <a class="ph-btn large btn-primary" href="{{checkoutLink}}"><i class="fas fa-shopping-cart"></i> Buy Now from €800!</a>
+          <p class="ph-small">Plus applicable sales tax in the EU.</p>
+          <!--<a class="ph-btn large btn-primary" href="#"><i class="fas fa-hand-pointer"></i> Self-Install</a>-->
+        </div>
+      </div>
+      <div class="ph-col-6 ph-col-md-12 ph-col-sm-12">
+
+      </div>
+    </div>
+  </div>
+</div>

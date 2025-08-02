@@ -1,0 +1,184 @@
+<style>
+    /* FAQ Section Container */
+    .ph.faq {
+        padding: 60px 20px;
+        background-color: #fff;
+        color: var(--dark-gray);
+        text-align: center;
+    }
+
+    /* FAQ Heading and Intro Text */
+    .ph.faq h2 {
+        margin-bottom: 20px;
+        color: var(--accent);  /* Accent color for headings */
+    }
+
+    .ph.faq p {
+        margin-bottom: 40px;
+        color: #222;
+    }
+
+    /* FAQ Card Styling */
+    .faq-card {
+        background-color: var(--primary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .faq-card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Details and Summary Reset */
+    .faq-card details {
+        cursor: pointer;
+    }
+
+    .faq-card summary {
+        list-style: none;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+    }
+
+    /* Remove default marker for summary */
+    .faq-card summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* FAQ Question Text */
+    .faq-question-text {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    /* Toggle Icon (Chevron) */
+    .faq-toggle-icon {
+        transition: transform 0.3s ease;
+        color: white;
+    }
+
+    /* Rotate the icon when the details element is open */
+    .faq-card details[open] .faq-toggle-icon i {
+        transform: rotate(180deg);
+    }
+
+    /* FAQ Answer Container */
+    .faq-answer {
+        padding: 0 20px 20px;
+        text-align: left;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .ph.faq .faq-answer p { color: var(--gold); }
+
+    /* When details is open, reveal the answer */
+    .faq-card details[open] .faq-answer {
+        opacity: 1;
+        max-height: 500px; /* An approximate max-height; adjust as needed */
+    }
+</style>
+<section class="ph faq">
+  <div class="ph-inner-width">
+    <h2>Frequently Asked Questions</h2>
+    <p>Got a culinary query? Dive into these FAQs to spice up your journey with Foodie Critics.</p>
+
+    <!-- FAQ Card 1 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">What is Foodie Critics?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Foodie Critics is your go-to hub for exploring the culinary arts, offering in-depth courses and genuine reviews from renowned chefs and passionate food enthusiasts.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ Card 2 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">How do I sign up for a food course?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Signing up is as easy as pie! Simply register on our platform, select the course that tickles your tastebuds, and start cooking up knowledge at your own pace.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ Card 3 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">Are these courses suitable for beginners?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Absolutely! Whether you’re a home cook or a budding gourmet, our courses are crafted to cater to all skill levels, making each lesson as easy as following a favorite recipe.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ Card 4 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">What types of cuisine do you cover?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            From traditional Italian pasta to vibrant street foods and innovative fusion dishes, our courses cover a wide palette of cuisines designed to satisfy every appetite.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ Card 5 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">Will I receive certification?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Yes! Once you complete a course, you'll earn a Foodie Critics certification—a delicious badge of honor to showcase your culinary accomplishments.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ Card 6 -->
+    <div class="faq-card" data-aos="fade-up">
+      <details>
+        <summary>
+          <span class="faq-question-text">How can I get additional help?</span>
+          <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Our kitchen is always open! Join our vibrant community or reach out directly to our chef mentors for tips, tricks, and all the help you need to elevate your culinary journey.
+          </p>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</section>
