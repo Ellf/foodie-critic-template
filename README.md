@@ -1,3 +1,10 @@
+![GitHub Release](https://img.shields.io/github/v/release/Ellf/foodie-critic-template)
+![GitHub repo file or directory count (in path)](https://img.shields.io/github/directory-file-count/Ellf/foodie-critic-template)
+![GitHub contributors](https://img.shields.io/github/contributors/Ellf/foodie-critic-template)
+![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/Ellf/foodie-critic-template/latest/total)
+
+![Foodie Critic Template Screenshot](https://static-media.hotmart.com/BdqHHi1WKDUrYN3Se2AzWcqj-jk=/424x239/https://uploads.teachablecdn.com/digital-products/8ca7eec97c8b40f38fdd8f69404df826.jpg)
+
 # Foodie Critics Teachable Template
 
 This template is provided 'as-is' and no warranty of any kind it provided. By installing and using this template and associated code, including HTML, CSS, Liquid and JavaScript, you agree to this.
@@ -41,6 +48,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 I
 
 ## Updates
 We host this template publicly on our Github repository. If you'd like to receive updates, feel free to join Github and 'star' the repo.
+https://github.com/Ellf/foodie-critic-template
 
 ## Problems?
 If you have any questions or notice a bug, please visit our Discourse Community forum at https://integr.at and sign up.
